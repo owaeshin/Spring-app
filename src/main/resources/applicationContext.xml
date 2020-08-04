@@ -13,18 +13,10 @@
           class="ru.kurbanov.springcourse.ClassicMusic">
     </bean>
 
-    <bean id="muiscBean2"
-          class="ru.kurbanov.springcourse.RockMusic">
-    </bean>
-
     <bean id="musicPlayer"
-          class="ru.kurbanov.springcourse.MusicPlayer">
-        <property name="musicList">
-            <list>
-                <ref bean="muiscBean2"/>
-                <ref bean="musicBean"/>
-            </list>
-        </property>
+          class="ru.kurbanov.springcourse.MusicPlayer"
+          scope="prototype">
+        <property name="music" ref="musicBean"/>
         <property name="name" value="${musicPlayer.name}"/>
         <property name="volume" value="${musicPlayer.volume}"/>
     </bean>
