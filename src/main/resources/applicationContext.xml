@@ -10,15 +10,18 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="musicBean"
-          class="ru.kurbanov.springcourse.ClassicMusic">
+          class="ru.kurbanov.springcourse.ClassicMusic"
+          init-method="init"
+          destroy-method="destroy"
+          factory-method="getClassicalMusic">
     </bean>
 
-    <bean id="musicPlayer"
-          class="ru.kurbanov.springcourse.MusicPlayer"
-          scope="prototype">
-        <property name="music" ref="musicBean"/>
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+    <!--    <bean id="musicPlayer"-->
+    <!--          class="ru.kurbanov.springcourse.MusicPlayer"-->
+    <!--          scope="prototype">-->
+    <!--        <property name="music" ref="musicBean"/>-->
+    <!--        <property name="name" value="${musicPlayer.name}"/>-->
+    <!--        <property name="volume" value="${musicPlayer.volume}"/>-->
+    <!--    </bean>-->
 
 </beans>
